@@ -3,40 +3,12 @@
 #include <Adafruit_PCD8544.h>
 // simple project with rotating 3D cube using Arduino UNO and Transparent 128x64 OLED Display, 
 // created by upir, 2022
-// youtube channel: https://www.youtube.com/upir_upir
 // full tutoral is here: https://youtu.be/kBAcaA7NAlA
 
-// Turbo pressure gauge tutorial: https://youtu.be/JXmw1xOlBdk
-// Transparent OLED tutorial: https://youtu.be/hIFDcksXgBk
-// Knob + OLED tutorial: https://youtu.be/NPfaLKKsf_Q
-
 // useful links:
-// u8g documentation: https://github.com/olikraus/u8glib/wiki/userreference
-// Wokwi starting project: https://wokwi.com/arduino/projects/300867986768527882
-// Arduino UNO: http://store.arduino.cc/products/arduino-uno-rev3
-// Arduino UNO MINI: https://store.arduino.cc/products/uno-mini-le
 // Multidimensional arrays: https://www.tutorialspoint.com/arduino/arduino_multi_dimensional_arrays.htm
 // 2D Rotation: https://en.wikipedia.org/wiki/Rotation_(mathematics)
-// Normal OLED Display: https://www.aliexpress.com/item/4001051535838.html
-// Transparent OLED Display: https://a.aliexpress.com/_mKGmhKg
-// Big OLED Display: https://www.aliexpress.com/item/1005003091769556.html
-// Arduino breadboard prototyping shield: https://www.adafruit.com/product/2077
 
-
-
-//#include "U8glib.h" // u8g library, note there is a newer version u8g2, please use the older one
-
-/*const uint8_t upir_logo[] U8G_PROGMEM = {        // another simple way how to define pictures for u8g library
-B00010101, B11010111,     //  ░░░█░█░███░█░███
-B00010101, B01000101,     //  ░░░█░█░█░█░░░█░█
-B00010101, B10010110,     //  ░░░█░█░██░░█░██░
-B00011001, B00010101      //  ░░░██░░█░░░█░█░█
-};*/
-
-// uncomment the correct connection - fast I2C, slow I2C, SPI
-//U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_DEV_0 | U8G_I2C_OPT_NO_ACK | U8G_I2C_OPT_FAST); // Fast I2C / TWI
-//U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_DEV_0 | U8G_I2C_OPT_NO_ACK); // slow I2C / TWI     -- I had to use "slow I2C" in my case
-//U8GLIB_SSD1306_128X64 u8g(13, 11, 8, 9, 10); // SPI connection  - SCL = 13, SDA = 11, RES = 10, DC = 9, CS = 8
 Adafruit_PCD8544 display = Adafruit_PCD8544(7, 6, 5, 4, 3);
 int points[8][2]; // eight 2D points for the cube, values will be calculated in the code
 int change_axis;
